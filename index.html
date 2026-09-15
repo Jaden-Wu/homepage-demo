@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>吴序铖 | Jaden Wu</title>
 
     <style>
@@ -14,192 +13,313 @@
             padding: 0;
         }
 
+        :root {
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --text: #1f2937;
+            --subtext: #667085;
+            --line: #e5e7eb;
+            --primary: #315efb;
+            --primary-soft: #eef3ff;
+            --accent: #7c3aed;
+            --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-            background: #f7f8fa;
-            color: #1f2937;
-            line-height: 1.7;
+                "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
         }
 
         .container {
-            max-width: 1050px;
+            width: min(1120px, calc(100% - 40px));
             margin: 0 auto;
-            padding: 0 28px;
         }
 
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 80px 0 65px;
+        .section {
+            padding: 64px 0;
         }
 
-        .hero-tag {
-            display: inline-block;
-            background: #eef2ff;
-            color: #4338ca;
-            padding: 6px 14px;
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
             border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-wrap {
+            padding: 26px 0 28px;
+        }
+
+        .hero {
+            overflow: hidden;
+            position: relative;
+            padding: 56px;
+            background:
+                radial-gradient(circle at top right, rgba(124, 58, 237, 0.16), transparent 28%),
+                radial-gradient(circle at top left, rgba(49, 94, 251, 0.16), transparent 28%),
+                linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            right: -60px;
+            top: -60px;
+            background: radial-gradient(circle, rgba(49, 94, 251, 0.12), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: var(--primary);
             font-size: 14px;
-            margin-bottom: 20px;
+            font-weight: 600;
+            margin-bottom: 18px;
         }
 
         h1 {
-            font-size: 48px;
-            margin-bottom: 12px;
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 10px;
             color: #111827;
         }
 
         .subtitle {
-            font-size: 21px;
-            color: #4b5563;
-            margin-bottom: 24px;
+            font-size: 22px;
+            color: #475467;
+            margin-bottom: 18px;
+            font-weight: 600;
         }
 
-        .intro {
+        .hero p {
             max-width: 760px;
-            color: #6b7280;
+            color: var(--subtext);
             font-size: 17px;
         }
 
-        section {
-            padding: 65px 0;
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
         }
 
-        section:nth-of-type(even) {
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #2449d8;
+        }
+
+        .btn-secondary {
             background: #ffffff;
+            color: var(--text);
+            border: 1px solid var(--line);
         }
 
-        h2 {
+        .btn-secondary:hover {
+            background: #f9fafb;
+        }
+
+        .quick-info {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .quick-item {
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(229, 231, 235, 0.9);
+        }
+
+        .quick-item .label {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .quick-item .value {
+            font-size: 15px;
+            color: #111827;
+            font-weight: 600;
+        }
+
+        .section-title {
             font-size: 30px;
-            margin-bottom: 28px;
+            margin-bottom: 14px;
             color: #111827;
         }
 
-        .about-text {
-            max-width: 850px;
-            font-size: 17px;
-            color: #4b5563;
+        .section-desc {
+            max-width: 760px;
+            color: var(--subtext);
+            margin-bottom: 28px;
+            font-size: 16px;
         }
 
-        .tags {
-            margin-top: 25px;
+        .chips {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 20px;
         }
 
-        .tag {
+        .chip {
             background: #eef2f7;
-            padding: 7px 14px;
-            border-radius: 18px;
-            font-size: 14px;
             color: #374151;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 14px;
         }
 
-        .cards {
+        .exp-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 22px;
         }
 
-        .card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
+        .exp-card {
             padding: 26px;
-            transition: 0.2s ease;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+        .exp-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
         }
 
-        .card h3 {
-            font-size: 19px;
-            margin-bottom: 12px;
-            color: #111827;
-        }
-
-        .card p {
-            font-size: 15px;
-            color: #6b7280;
-        }
-
-        .education-item {
-            margin-bottom: 24px;
-        }
-
-        .education-item h3 {
-            font-size: 18px;
+        .exp-card h3 {
+            font-size: 20px;
+            line-height: 1.4;
             margin-bottom: 4px;
         }
 
-        .education-item p {
+        .exp-role {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .exp-tag {
+            font-size: 13px;
             color: #6b7280;
+            background: #f3f4f6;
+            padding: 6px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .exp-card p {
+            color: var(--subtext);
+            font-size: 15px;
         }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
-        .skill {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            padding: 18px 22px;
-            border-radius: 10px;
+        .skill-card {
+            padding: 22px 24px;
         }
 
-        .contact {
+        .skill-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: var(--subtext);
+            font-size: 15px;
+        }
+
+        .contact-box {
+            padding: 42px;
             text-align: center;
         }
 
-        .contact p {
+        .contact-box p {
+            color: var(--subtext);
             margin-bottom: 20px;
-            color: #6b7280;
-        }
-
-        .email-button {
-            display: inline-block;
-            text-decoration: none;
-            background: #111827;
-            color: #ffffff;
-            padding: 12px 22px;
-            border-radius: 8px;
-            transition: 0.2s ease;
-        }
-
-        .email-button:hover {
-            background: #374151;
         }
 
         footer {
             text-align: center;
-            padding: 28px;
+            color: #98a2b3;
             font-size: 14px;
-            color: #9ca3af;
-            border-top: 1px solid #e5e7eb;
-            background: #ffffff;
+            padding: 26px 20px 34px;
         }
 
-        @media (max-width: 800px) {
-            h1 {
-                font-size: 38px;
+        @media (max-width: 980px) {
+            .exp-grid {
+                grid-template-columns: 1fr;
             }
 
-            .cards {
-                grid-template-columns: 1fr;
+            .quick-info {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .skills-grid {
                 grid-template-columns: 1fr;
             }
 
-            header {
-                padding: 55px 0;
+            .hero {
+                padding: 34px 24px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                width: min(1120px, calc(100% - 24px));
+            }
+
+            .section {
+                padding: 44px 0;
+            }
+
+            .quick-info {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .contact-box {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -207,175 +327,171 @@
 
 <body>
 
-<header>
-    <div class="container">
+    <div class="hero-wrap">
+        <div class="container">
+            <section class="hero card">
+                <div class="badge">Finance · Research · Data Analysis</div>
 
-        <div class="hero-tag">
-            Finance · Research · Data Analysis
-        </div>
-
-        <h1>吴序铖</h1>
-
-        <div class="subtitle">
-            Jaden Wu · 复旦大学金融硕士
-        </div>
-
-        <p class="intro">
-            关注公司研究、汽车与智能驾驶产业以及金融数据分析，
-            希望通过研究与数据更深入地理解企业、行业与资本市场。
-        </p>
-
-    </div>
-</header>
-
-
-<section>
-    <div class="container">
-
-        <h2>About Me</h2>
-
-        <p class="about-text">
-            我目前就读于复旦大学金融专业硕士项目，本科就读于郑州大学金融学专业，
-            并曾赴新西兰怀卡托大学进行金融学交换学习。
-            在证券研究与投资顾问相关实习中，我参与过汽车及智能驾驶产业研究、
-            公司与行业深度报告、财务数据分析、市场研究以及基金产品支持等工作。
-        </p>
-
-        <div class="tags">
-            <span class="tag">金融分析</span>
-            <span class="tag">汽车行业研究</span>
-            <span class="tag">智能驾驶</span>
-            <span class="tag">数据分析</span>
-            <span class="tag">公司研究</span>
-            <span class="tag">AI</span>
-        </div>
-
-    </div>
-</section>
-
-
-<section>
-    <div class="container">
-
-        <h2>Education</h2>
-
-        <div class="education-item">
-            <h3>复旦大学</h3>
-            <p>金融 · 硕士研究生 · 2026.09 – 2028.06</p>
-        </div>
-
-        <div class="education-item">
-            <h3>郑州大学</h3>
-            <p>金融学 · 本科 · 2022.09 – 2026.06</p>
-        </div>
-
-        <div class="education-item">
-            <h3>新西兰怀卡托大学</h3>
-            <p>金融学 · 国际交换生 · 2024.08 – 2024.12</p>
-        </div>
-
-    </div>
-</section>
-
-
-<section>
-    <div class="container">
-
-        <h2>Experience & Projects</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>汽车与智能驾驶产业研究</h3>
+                <h1>吴序铖</h1>
+                <div class="subtitle">Jaden Wu · 复旦大学金融硕士</div>
 
                 <p>
-                    围绕汽车与智能驾驶产业链开展公司及行业研究，
-                    参与比亚迪、Momenta、吉利汽车、Robotaxi、
-                    Robotruck及新能源汽车出海等相关课题。
+                    关注公司研究、汽车与智能驾驶产业、金融数据分析与资本市场实践。
+                    希望通过研究、数据与商业理解，更深入地观察企业与行业的变化。
                 </p>
-            </div>
 
-            <div class="card">
-                <h3>财务与经营数据分析</h3>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="mailto:26210680143@m.fudan.edu.cn">联系我</a>
+                    <a class="btn btn-secondary" href="#experience">查看经历</a>
+                </div>
 
-                <p>
-                    跟踪上市公司财务及经营数据，
-                    更新个股数据库并辅助盈利预测模型调整，
-                    结合 Excel 和数据分析工具完成数据整理与研究支持。
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>市场研究与基金产品支持</h3>
-
-                <p>
-                    参与市场行情复盘、财经资讯跟踪及基金产品材料制作，
-                    并对沪深个股及公募基金数据进行清洗、统计与标准化维护。
-                </p>
-            </div>
-
+                <div class="quick-info">
+                    <div class="quick-item">
+                        <div class="label">教育背景</div>
+                        <div class="value">复旦大学金融硕士在读</div>
+                    </div>
+                    <div class="quick-item">
+                        <div class="label">研究方向</div>
+                        <div class="value">汽车 / 智能驾驶 / 公司研究</div>
+                    </div>
+                    <div class="quick-item">
+                        <div class="label">核心能力</div>
+                        <div class="value">金融分析 · 数据整理 · 研究写作</div>
+                    </div>
+                    <div class="quick-item">
+                        <div class="label">联系邮箱</div>
+                        <div class="value">26210680143@m.fudan.edu.cn</div>
+                    </div>
+                </div>
+            </section>
         </div>
-
     </div>
-</section>
 
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-desc">
+                我目前就读于复旦大学金融专业硕士项目，本科毕业于郑州大学金融学专业，
+                并曾赴新西兰怀卡托大学进行交换学习。实习经历覆盖证券研究、投资顾问支持与投资银行股权承做，
+                重点关注汽车与智能驾驶产业、财务与经营数据分析，以及资本市场相关业务。
+            </p>
 
-<section>
-    <div class="container">
-
-        <h2>Skills</h2>
-
-        <div class="skills-grid">
-
-            <div class="skill">
-                <strong>Financial Research</strong><br>
-                公司研究、行业研究、财务分析
+            <div class="chips">
+                <span class="chip">金融研究</span>
+                <span class="chip">汽车行业</span>
+                <span class="chip">智能驾驶</span>
+                <span class="chip">数据分析</span>
+                <span class="chip">资本市场</span>
+                <span class="chip">AI</span>
             </div>
-
-            <div class="skill">
-                <strong>Excel</strong><br>
-                VLOOKUP、数据透视表、数据整理
-            </div>
-
-            <div class="skill">
-                <strong>R</strong><br>
-                ggplot2、相关性分析、数据爬取
-            </div>
-
-            <div class="skill">
-                <strong>English</strong><br>
-                CET-6 641，可进行英文资料研究与工作沟通
-            </div>
-
         </div>
+    </section>
 
-    </div>
-</section>
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="section-title">Selected Experience</h2>
+            <p class="section-desc">
+                以下是我较有代表性的几段实习与研究经历，涵盖行业研究、数据分析、
+                市场支持与投行业务。
+            </p>
 
+            <div class="exp-grid">
+                <div class="exp-card card">
+                    <div class="exp-top">
+                        <div>
+                            <h3>浙商证券研究所</h3>
+                            <div class="exp-role">分析师助理</div>
+                        </div>
+                        <div class="exp-tag">Research</div>
+                    </div>
+                    <p>
+                        围绕汽车与智能驾驶产业链参与公司和行业研究，
+                        涉及比亚迪、Momenta、吉利汽车、Robotaxi、
+                        Robotruck 及新能源汽车出海等方向；同时参与财报与事件跟踪、
+                        机构服务材料制作以及经营数据整理和模型支持。
+                    </p>
+                </div>
 
-<section>
-    <div class="container contact">
+                <div class="exp-card card">
+                    <div class="exp-top">
+                        <div>
+                            <h3>国海证券</h3>
+                            <div class="exp-role">投顾助理</div>
+                        </div>
+                        <div class="exp-tag">Market</div>
+                    </div>
+                    <p>
+                        参与市场行情复盘、财经资讯跟踪及基金产品推介材料制作，
+                        并对沪深个股及公募基金数据进行清洗、统计与标准化维护，
+                        提升对市场信息整理与投研支持工作的理解。
+                    </p>
+                </div>
 
-        <h2>Contact</h2>
+                <div class="exp-card card">
+                    <div class="exp-top">
+                        <div>
+                            <h3>国泰海通证券</h3>
+                            <div class="exp-role">投资银行部 · 股权承做</div>
+                        </div>
+                        <div class="exp-tag">Investment Banking</div>
+                    </div>
+                    <p>
+                        参与股权承做相关项目支持工作，协助整理项目材料、
+                        财务与业务信息，并接触投行项目推进过程中的基础工作内容，
+                        加深了我对资本市场实务与企业融资流程的理解。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <p>
-            欢迎通过邮件与我联系。
-        </p>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-desc">
+                我目前较熟悉的能力主要集中在金融研究、数据整理与研究表达方面。
+            </p>
 
-        <a
-            class="email-button"
-            href="mailto:26210680143@m.fudan.edu.cn"
-        >
-            26210680143@m.fudan.edu.cn
-        </a>
+            <div class="skills-grid">
+                <div class="skill-card card">
+                    <h3>Financial Research</h3>
+                    <p>公司研究、行业研究、财务分析、研究框架搭建与内容撰写。</p>
+                </div>
 
-    </div>
-</section>
+                <div class="skill-card card">
+                    <h3>Excel & Data Processing</h3>
+                    <p>熟悉 VLOOKUP、数据透视表、数据清洗与结构化整理。</p>
+                </div>
 
+                <div class="skill-card card">
+                    <h3>R & Visualization</h3>
+                    <p>可使用 R 进行 ggplot2 绘图、相关性分析及基础数据处理。</p>
+                </div>
 
-<footer>
-    © 2026 Jaden Wu · Built with GitHub & Vercel
-</footer>
+                <div class="skill-card card">
+                    <h3>English</h3>
+                    <p>CET-6 641，可进行英文资料研究与日常工作沟通。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-box card">
+                <h2 class="section-title">Contact</h2>
+                <p>欢迎通过邮件与我联系。</p>
+                <a class="btn btn-primary" href="mailto:26210680143@m.fudan.edu.cn">
+                    26210680143@m.fudan.edu.cn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Jaden Wu · Built with GitHub & Vercel
+    </footer>
 
 </body>
+
 </html>
