@@ -4,20 +4,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人主页</title>
+
+    <title>吴序铖 | Jaden Wu</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+            background: #f7f8fa;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 80px 0 65px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4338ca;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .subtitle {
+            font-size: 21px;
+            color: #4b5563;
+            margin-bottom: 24px;
+        }
+
+        .intro {
+            max-width: 760px;
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        section {
+            padding: 65px 0;
+        }
+
+        section:nth-of-type(even) {
+            background: #ffffff;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 28px;
+            color: #111827;
+        }
+
+        .about-text {
+            max-width: 850px;
+            font-size: 17px;
+            color: #4b5563;
+        }
+
+        .tags {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #eef2f7;
+            padding: 7px 14px;
+            border-radius: 18px;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 26px;
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .card h3 {
+            font-size: 19px;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        .education-item {
+            margin-bottom: 24px;
+        }
+
+        .education-item h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .education-item p {
+            color: #6b7280;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .skill {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            padding: 18px 22px;
+            border-radius: 10px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin-bottom: 20px;
+            color: #6b7280;
+        }
+
+        .email-button {
+            display: inline-block;
+            text-decoration: none;
+            background: #111827;
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 8px;
+            transition: 0.2s ease;
+        }
+
+        .email-button:hover {
+            background: #374151;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px;
+            font-size: 14px;
+            color: #9ca3af;
+            border-top: 1px solid #e5e7eb;
+            background: #ffffff;
+        }
+
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 38px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 55px 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>你好，欢迎来到我的个人主页！</h1>
 
-    <h2>关于我</h2>
-    <p>我是一名学生，这是我第一次使用 GitHub 创建并发布网页。</p>
+<header>
+    <div class="container">
 
-    <h2>我的兴趣</h2>
-    <p>我对金融、汽车、科技和人工智能感兴趣。</p>
+        <div class="hero-tag">
+            Finance · Research · Data Analysis
+        </div>
 
-    <h2>关于这个网页</h2>
-    <p>这个网页将通过 GitHub 和 Vercel 发布到互联网。</p>
+        <h1>吴序铖</h1>
+
+        <div class="subtitle">
+            Jaden Wu · 复旦大学金融硕士
+        </div>
+
+        <p class="intro">
+            关注公司研究、汽车与智能驾驶产业以及金融数据分析，
+            希望通过研究与数据更深入地理解企业、行业与资本市场。
+        </p>
+
+    </div>
+</header>
+
+
+<section>
+    <div class="container">
+
+        <h2>About Me</h2>
+
+        <p class="about-text">
+            我目前就读于复旦大学金融专业硕士项目，本科就读于郑州大学金融学专业，
+            并曾赴新西兰怀卡托大学进行金融学交换学习。
+            在证券研究与投资顾问相关实习中，我参与过汽车及智能驾驶产业研究、
+            公司与行业深度报告、财务数据分析、市场研究以及基金产品支持等工作。
+        </p>
+
+        <div class="tags">
+            <span class="tag">金融分析</span>
+            <span class="tag">汽车行业研究</span>
+            <span class="tag">智能驾驶</span>
+            <span class="tag">数据分析</span>
+            <span class="tag">公司研究</span>
+            <span class="tag">AI</span>
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+
+        <h2>Education</h2>
+
+        <div class="education-item">
+            <h3>复旦大学</h3>
+            <p>金融 · 硕士研究生 · 2026.09 – 2028.06</p>
+        </div>
+
+        <div class="education-item">
+            <h3>郑州大学</h3>
+            <p>金融学 · 本科 · 2022.09 – 2026.06</p>
+        </div>
+
+        <div class="education-item">
+            <h3>新西兰怀卡托大学</h3>
+            <p>金融学 · 国际交换生 · 2024.08 – 2024.12</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+
+        <h2>Experience & Projects</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>汽车与智能驾驶产业研究</h3>
+
+                <p>
+                    围绕汽车与智能驾驶产业链开展公司及行业研究，
+                    参与比亚迪、Momenta、吉利汽车、Robotaxi、
+                    Robotruck及新能源汽车出海等相关课题。
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>财务与经营数据分析</h3>
+
+                <p>
+                    跟踪上市公司财务及经营数据，
+                    更新个股数据库并辅助盈利预测模型调整，
+                    结合 Excel 和数据分析工具完成数据整理与研究支持。
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>市场研究与基金产品支持</h3>
+
+                <p>
+                    参与市场行情复盘、财经资讯跟踪及基金产品材料制作，
+                    并对沪深个股及公募基金数据进行清洗、统计与标准化维护。
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+
+        <h2>Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill">
+                <strong>Financial Research</strong><br>
+                公司研究、行业研究、财务分析
+            </div>
+
+            <div class="skill">
+                <strong>Excel</strong><br>
+                VLOOKUP、数据透视表、数据整理
+            </div>
+
+            <div class="skill">
+                <strong>R</strong><br>
+                ggplot2、相关性分析、数据爬取
+            </div>
+
+            <div class="skill">
+                <strong>English</strong><br>
+                CET-6 641，可进行英文资料研究与工作沟通
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <div class="container contact">
+
+        <h2>Contact</h2>
+
+        <p>
+            欢迎通过邮件与我联系。
+        </p>
+
+        <a
+            class="email-button"
+            href="mailto:26210680143@m.fudan.edu.cn"
+        >
+            26210680143@m.fudan.edu.cn
+        </a>
+
+    </div>
+</section>
+
+
+<footer>
+    © 2026 Jaden Wu · Built with GitHub & Vercel
+</footer>
+
 </body>
-
 </html>
